@@ -8,5 +8,3 @@ resources:
   - metrics-server
   - reloader
   #- kube-vip
-
-  - kube-vip
