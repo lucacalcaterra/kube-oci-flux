@@ -38,7 +38,7 @@ spec:
         # externalTrafficPolicy: Local
         type: NodePort
         nodePorts:
-          http: 30008
+          http: 30080
           https: 30443
         # ports:
         #   - name: http
