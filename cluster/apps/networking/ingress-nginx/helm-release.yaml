@@ -32,22 +32,25 @@ spec:
         - name: TZ
           value: "${TIMEZONE}"
       service:
-        annotations:
+        #annotations:
         #metallb.universe.tf/loadBalancerIPs: |-
         #  ${METALLB_INGRESS_ADDR}
-        externalTrafficPolicy: Local
+        # externalTrafficPolicy: Local
         type: NodePort
-        ports:
-          - name: http
-            port: 80
-            protocol: TCP
-            targetPort: 80
-            nodePort: 30080
-          - name: https
-            port: 443
-            protocol: TCP
-            targetPort: 443
-            nodePort: 30443
+        nodePorts:
+          http: 30008
+          https: 30443
+        # ports:
+        #   - name: http
+        #     port: 80
+        #     protocol: TCP
+        #     targetPort: 80
+        #     nodePort: 30080
+        #   - name: https
+        #     port: 443
+        #     protocol: TCP
+        #     targetPort: 443
+        #     nodePort: 30443
 
       publishService:
         enabled: true
