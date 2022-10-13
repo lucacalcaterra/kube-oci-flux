@@ -71,6 +71,8 @@ spec:
         ssl-protocols: "TLSv1.3 TLSv1.2"
         use-forwarded-headers: "true"
         use-proxy-protocol: "true"
+        enable-real-ip: "true"
+        proxy-real-ip-cidr: "0.0.0.0/0"
       metrics:
         enabled: false
       podAnnotations:
