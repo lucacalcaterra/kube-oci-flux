@@ -22,3 +22,140 @@ spec:
     remediation:
       retries: 5
   values:
+    apiServer:
+      address: https://129.152.13.201:6443
+      trustedCA: false
+    auth:
+      config:
+        enableAuthentication: true
+      imageName: liqo/auth-service
+      ingress:
+        annotations: {}
+        class: "nginx"
+        enable: false
+        host: ""
+      initContainer:
+        imageName: liqo/cert-creator
+      pod:
+        annotations: {}
+        extraArgs: []
+        labels: {}
+      portOverride: ""
+      service:
+        annotations: {}
+        type: NodePort
+      tls: true
+    awsConfig:
+      accessKeyId: ""
+      clusterName: ""
+      region: ""
+      secretAccessKey: ""
+    controllerManager:
+      config:
+        resourceSharingPercentage: 90
+      imageName: liqo/liqo-controller-manager
+      pod:
+        annotations: {}
+        extraArgs: []
+        labels: {}
+      replicas: 1
+    crdReplicator:
+      imageName: liqo/crd-replicator
+      pod:
+        annotations: {}
+        extraArgs: []
+        labels: {}
+    discovery:
+      config:
+        autojoin: true
+        clusterLabels:
+          liqo.io/provider: k3s
+        clusterName: patient-glitter
+        enableAdvertisement: false
+        enableDiscovery: false
+        incomingPeeringEnabled: true
+        ttl: 90
+      imageName: liqo/discovery
+      pod:
+        annotations: {}
+        extraArgs: []
+        labels: {}
+    fullnameOverride: ""
+    gateway:
+      config:
+        listeningPort: 5871
+      imageName: liqo/liqonet
+      pod:
+        annotations: {}
+        extraArgs: []
+        labels: {}
+      replicas: 1
+      service:
+        annotations: {}
+        type: NodePort
+    metricAgent:
+      enable: true
+      imageName: liqo/metric-agent
+      initContainer:
+        imageName: liqo/cert-creator
+      pod:
+        annotations: {}
+        extraArgs: []
+        labels: {}
+    nameOverride: ""
+    networkConfig:
+      mtu: 1340
+    networkManager:
+      config:
+        additionalPools: []
+        podCIDR: 10.42.0.0/16
+        reservedSubnets: []
+        serviceCIDR: 10.43.0.0/16
+      imageName: liqo/liqonet
+      pod:
+        annotations: {}
+        extraArgs: []
+        labels: {}
+    openshiftConfig:
+      enable: false
+      virtualKubeletSCCs:
+        - anyuid
+    proxy:
+      config:
+        listeningPort: 8118
+      imageName: envoyproxy/envoy:v1.21.0
+      pod:
+        annotations: {}
+        extraArgs: []
+        labels: {}
+      service:
+        annotations: {}
+        type: ClusterIP
+    pullPolicy: IfNotPresent
+    route:
+      imageName: liqo/liqonet
+      pod:
+        annotations: {}
+        extraArgs: []
+        labels: {}
+    storage:
+      enable: true
+      realStorageClassName: ""
+      storageNamespace: liqo-storage
+      virtualStorageClassName: liqo
+    tag: v0.5.4
+    virtualKubelet:
+      extra:
+        annotations: {}
+        args: []
+        labels: {}
+      imageName: liqo/virtual-kubelet
+      virtualNode:
+        extra:
+          annotations: {}
+          labels: {}
+    webhook:
+      failurePolicy: Fail
+      patch:
+        image: k8s.gcr.io/ingress-nginx/kube-webhook-certgen:v1.1.1
+      port: 9443
