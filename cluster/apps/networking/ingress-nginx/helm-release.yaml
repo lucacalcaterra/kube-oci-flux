@@ -38,7 +38,7 @@ spec:
         # externalTrafficPolicy: Local
         type: NodePort
         nodePorts:
-          http: 30008
+          http: 30080
           https: 30443
         # ports:
         #   - name: http
@@ -70,6 +70,9 @@ spec:
         proxy-body-size: "100M"
         ssl-protocols: "TLSv1.3 TLSv1.2"
         use-forwarded-headers: "true"
+        use-proxy-protocol: "true"
+        enable-real-ip: "true"
+        proxy-real-ip-cidr: "0.0.0.0/0"
       metrics:
         enabled: false
       podAnnotations:
