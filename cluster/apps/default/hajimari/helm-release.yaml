@@ -94,7 +94,7 @@ spec:
               url: "http://medium.com"
             - name: Reddit
               url: "http://reddit.com"
-        - name: Tech
+        - name: Techa
           links:
             - name: Hacker News
               url: "https://news.ycombinator.com/"
