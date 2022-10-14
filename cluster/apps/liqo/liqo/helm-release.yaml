@@ -31,7 +31,7 @@ spec:
       imageName: liqo/auth-service
       ingress:
         annotations: {}
-        class: "nginx"
+        class: ""
         enable: false
         host: ""
       initContainer:
@@ -70,7 +70,7 @@ spec:
         autojoin: true
         clusterLabels:
           liqo.io/provider: k3s
-        clusterName: patient-glitter
+        clusterName: k3s-oci
         enableAdvertisement: false
         enableDiscovery: false
         incomingPeeringEnabled: true
