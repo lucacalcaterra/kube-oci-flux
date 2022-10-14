@@ -10,7 +10,8 @@ resources:
   - ingress-nginx.yaml
   - jetstack.yaml
   - k8s-gateway.yaml
-  #- metallb.yaml
+  - liqo.yaml
+  # - metallb.yaml
   - metrics-server.yaml
   - stakater.yaml
   - weaveworks-kured.yaml
