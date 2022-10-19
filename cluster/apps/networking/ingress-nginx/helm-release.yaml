@@ -87,7 +87,7 @@ spec:
           memory: 500Mi
       extraArgs:
         # ssl passthrough
-        - --enable-ssl-passthrough
+        enable-ssl-passthrough
     defaultBackend:
       enabled: true
       image:
