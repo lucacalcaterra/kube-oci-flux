@@ -32,8 +32,8 @@ spec:
         - name: TZ
           value: "${TIMEZONE}"
       service:
-        #annotations:
-        #metallb.universe.tf/loadBalancerIPs: |-
+        # annotations:
+        # metallb.universe.tf/loadBalancerIPs: |-
         #  ${METALLB_INGRESS_ADDR}
         # externalTrafficPolicy: Local
         type: NodePort
@@ -85,6 +85,9 @@ spec:
           memory: 250Mi
         limits:
           memory: 500Mi
+      extraArgs:
+        # ssl passthrough
+        - --enable-ssl-passthrough
     defaultBackend:
       enabled: true
       image:
